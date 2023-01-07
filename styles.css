@@ -14,5 +14,11 @@
     margin: 0 auto;
 }
 
+.result-display {
+    padding: 1rem;
+    border-bottom: black 1px solid;
+    width: 100%;
+}
+
 
 
