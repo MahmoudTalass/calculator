@@ -24,5 +24,16 @@
     display: flex;
 }
 
+.digits {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.num-btn {
+    width: 1rem;
+    flex: 1 0 33.33%;
+}
+
 
 
