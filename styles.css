@@ -20,5 +20,9 @@
     width: 100%;
 }
 
+.digits-operations {
+    display: flex;
+}
+
 
 
