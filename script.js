@@ -1,5 +1,8 @@
-const display = document.querySelector("#display");
-let displayVal = display.textContent;
+const fullOperationDis = document.querySelector("#full-operation");
+let fullOperationDisVal = fullOperationDis.textContent;
+const currentNumDis = document.querySelector("#current-num")
+let currentNumDisVal = currentNumDis.textContent;
+
 const numBtns = document.querySelectorAll(".num-btn");
 const numBtnsArr = [...numBtns];
 
@@ -19,8 +22,8 @@ plus.addEventListener(("click"), () => {
 
 numBtnsArr.map((btn) => {
    btn.addEventListener("click", () => {
-      display.textContent += btn.textContent;
-      displayVal = display.textContent;
+      currentNumDis.textContent += btn.textContent;
+      currentNumDisVal = currentNumDis.textContent;
    });
 });
 
