@@ -1,15 +1,28 @@
 const display = document.querySelector("#display");
 let displayVal = display.textContent;
-const numBtns = document.querySelectorAll(".num-btn")
-const numBtnsArr = [...numBtns]
+const numBtns = document.querySelectorAll(".num-btn");
+const numBtnsArr = [...numBtns];
 
-numBtnsArr.map(btn => {
-   btn.addEventListener(("click"), () => {
-      display.textContent += btn.textContent
-      displayVal = display.textContent;
-      console.log(displayVal)
-   })
+const plus = document.querySelector("#plus");
+const minus = document.querySelector("#minus");
+const divide = document.querySelector("#divide");
+const times = document.querySelector("#times");
+
+let values = []
+let operation;
+
+plus.addEventListener(("click"), () => {
+   values.push(displayVal);
+   display.textContent += "+";
+   operation = add
 })
+
+numBtnsArr.map((btn) => {
+   btn.addEventListener("click", () => {
+      display.textContent += btn.textContent;
+      displayVal = display.textContent;
+   });
+});
 
 function add(...args) {
    return args.reduce((total, currentNum) => {
@@ -29,7 +42,7 @@ function multiply(...args) {
    });
 }
 
-function divide(...args) {
+function division(...args) {
    return args.reduce((total, currentNum) => {
       return total / currentNum;
    });
