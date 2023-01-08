@@ -15,9 +15,14 @@ let values = []
 let operation;
 
 plus.addEventListener(("click"), () => {
-   values.push(displayVal);
-   display.textContent += "+";
-   operation = add
+   values.push(currentNumDisVal);
+   currentNumDis.textContent = ''
+   if (fullOperationDis.textContent === "") {
+      fullOperationDis.textContent += `${values[values.length - 1]}`
+   } else {
+      fullOperationDis.textContent += ` + ${values[values.length - 1]}`
+   }
+   operation = add();
 })
 
 numBtnsArr.map((btn) => {
