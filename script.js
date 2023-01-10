@@ -11,11 +11,19 @@ const minus = document.querySelector("#minus");
 const divide = document.querySelector("#divide");
 const times = document.querySelector("#times");
 const equals = document.querySelector("#equals");
+const clear = document.querySelector("#clear");
 
-// let values = [];
 let num1;
 let num2;
 let operation;
+
+clear.addEventListener("click", () => {
+   currentNumDis.textContent = ""
+   fullOperationDis.textContent = ""
+   currentNumDisVal = undefined;
+   num1 = undefined;
+   num2 = undefined;
+})
 
 equals.addEventListener("click", () => {
    if (num1) {
