@@ -27,14 +27,14 @@ clear.addEventListener("click", () => {
 
 equals.addEventListener("click", () => {
    if (num1) {
-      num2 = parseInt(currentNumDisVal);
+      num2 = parseFloat(currentNumDisVal);
       fullOperationDis.textContent += `${num2} =`;
       if (operation === division && num2 === 0) {
          currentNumDis.textContent = "error: you cannot divide by 0";
       } else {
          let result = operate(operation, num1, num2);
          currentNumDis.textContent = result;
-         num1 = result;
+         num1 = result;g
          num2 = undefined;
       }
    }
@@ -68,7 +68,7 @@ function doOperation(sign, op) {
       if (num1) {
          fullOperationDis.textContent = `${num1} ${sign} `;
       } else {
-         num1 = parseInt(currentNumDisVal);
+         num1 = parseFloat(currentNumDisVal);
          fullOperationDis.textContent += `${num1} ${sign} `;
       }
       currentNumDis.textContent = "";
