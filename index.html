@@ -10,8 +10,8 @@
    <body>
       <div class="calc-container">
          <div class="display" id="display">
-            <div id="full-operation"></div>
-            <div id="current-num"></div>
+            <div id="full-operation" class="full-operation">&nbsp</div>
+            <div id="current-num" class="current-num">0</div>
          </div>
          <div class="buttons-container">
             <div class="digits-operations">
@@ -26,7 +26,7 @@
                   <button class="num-btn">8</button>
                   <button class="num-btn">9</button>
                   <button class="num-btn">0</button>
-                  <button class="num-btn">.</button>
+                  <button class="num-btn" id="decimal-point">.</button>
                </div>
                <div class="operations">
                   <button class="operator-btn" id="plus">+</button>
@@ -37,8 +37,8 @@
             </div>
 
             <div class="other-buttons">
-               <button class="equals-btn" id="equals">=</button>
                <button class="clear-btn" id="clear">Clear</button>
+               <button class="equals-btn" id="equals">=</button>
             </div>
          </div>
       </div>
