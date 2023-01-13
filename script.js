@@ -12,30 +12,33 @@ const divide = document.querySelector("#divide");
 const times = document.querySelector("#times");
 const equals = document.querySelector("#equals");
 const clear = document.querySelector("#clear");
+const decimalPoint = document.querySelector("#decimal-point")
 
 let num1;
 let num2;
 let operation;
 
 clear.addEventListener("click", () => {
-   currentNumDis.textContent = ""
-   fullOperationDis.textContent = ""
+   currentNumDis.textContent = "";
+   fullOperationDis.textContent = "";
    currentNumDisVal = undefined;
    num1 = undefined;
    num2 = undefined;
-})
+});
 
 equals.addEventListener("click", () => {
-   if (num1) {
-      num2 = parseFloat(currentNumDisVal);
-      fullOperationDis.textContent += `${num2} =`;
-      if (operation === division && num2 === 0) {
-         currentNumDis.textContent = "error: you cannot divide by 0";
-      } else {
-         let result = operate(operation, num1, num2);
-         currentNumDis.textContent = result;
-         num1 = result;g
-         num2 = undefined;
+   if (!fullOperationDis.textContent.includes("=")) {
+      if (num1) {
+         num2 = parseFloat(currentNumDisVal);
+         fullOperationDis.textContent += `${num2} =`;
+         if (operation === division && num2 === 0) {
+            currentNumDis.textContent = "error: you cannot divide by 0";
+         } else {
+            let result = operate(operation, num1, num2);
+            currentNumDis.textContent = result;
+            num1 = result;
+            num2 = undefined;
+         }
       }
    }
 });
@@ -58,10 +61,25 @@ times.addEventListener("click", () => {
 
 numBtnsArr.map((btn) => {
    btn.addEventListener("click", () => {
-      currentNumDis.textContent += btn.textContent;
-      currentNumDisVal = currentNumDis.textContent;
+      if (btn.textContent !== ".") {
+         displayNum(btn)
+      }
    });
 });
+
+decimalPoint.addEventListener("click", (btn) => {
+   displayNum(btn)
+})
+
+function displayNum(btn) {
+   if (currentNumDis.textContent === "0") {
+            currentNumDis.textContent = btn.textContent;
+         } else {
+            currentNumDis.textContent += btn.textContent;
+         }
+         currentNumDisVal = currentNumDis.textContent;
+      }
+
 
 function doOperation(sign, op) {
    if (num2 === undefined) {
